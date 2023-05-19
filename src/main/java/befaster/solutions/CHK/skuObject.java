@@ -55,7 +55,6 @@ public class skuObject {
     }
 
     public int calculateItemTotal(){
-        //   this.setTotal(totalSkuAInBasket);
         int totalSkuInBasket = this.getCount();
         List<DiscountCalculator> itemDiscounts = this.getItemDiscounts();
         if(itemDiscounts.size() > 0){
@@ -70,4 +69,5 @@ public class skuObject {
         return name;
     }
 }
+
 
