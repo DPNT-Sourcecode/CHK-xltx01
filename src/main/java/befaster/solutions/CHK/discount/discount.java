@@ -10,7 +10,6 @@ public abstract class discount {
     public int getItemCount() {
         return itemCount;
     }
-
-  abstract int calculateDiscount(int su);
 }
+
 
