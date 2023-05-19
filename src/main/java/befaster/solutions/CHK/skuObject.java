@@ -2,6 +2,8 @@ package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.discount.discount;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class skuObject {
@@ -16,7 +18,7 @@ public class skuObject {
         this.name = name;
         this.price = price;
         this.total = 0;
-        itemDiscounts = 
+        itemDiscounts = Collections.emptyList();
     }
 
     public int getPrice() {
@@ -35,8 +37,9 @@ public class skuObject {
         return itemDiscounts;
     }
 
-    public void setItemDiscounts(List<discount> itemDiscounts) {
-        this.itemDiscounts = itemDiscounts;
+    public void setItemDiscounts(discount discount) {
+        itemDiscounts.add(discount);
     }
 }
+
 

@@ -1,6 +1,6 @@
 package befaster.solutions.CHK.discount;
 
-public class discount {
+public abstract class discount {
     private int itemCount;
 
     public discount(int itemCount) {
@@ -10,4 +10,7 @@ public class discount {
     public int getItemCount() {
         return itemCount;
     }
+
+  abstract int calculateDiscount(int su);
 }
+

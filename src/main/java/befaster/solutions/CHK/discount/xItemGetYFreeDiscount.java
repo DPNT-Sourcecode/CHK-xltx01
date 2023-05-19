@@ -7,9 +7,14 @@ public class xItemGetYFreeDiscount extends discount{
        super(itemCount);
     }
 
+    int calculateDiscount(int count) {
+        return 0;
+    }
+
     public int calculateDiscount(int count, int countOfDependentItem) {
         int quotientForSkulEToBDiscount = countOfDependentItem/getItemCount();
         if(quotientForSkulEToBDiscount != 0 && count>0 ) count= count - quotientForSkulEToBDiscount;
         return count;
     }
 }
+
