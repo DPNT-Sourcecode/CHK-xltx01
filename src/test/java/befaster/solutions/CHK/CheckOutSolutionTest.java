@@ -17,10 +17,12 @@ public class CheckOutSolutionTest {
 
     @Test
     public void compute_checkout(){
-       assertThat(checkoutSolution.checkout("ABCD"), equalTo(115));
+      // assertThat(checkoutSolution.checkout("ABCD"), equalTo(115));
+       assertThat(checkoutSolution.checkout("AAAABBBC"), equalTo(275));
     }
 
 
 }
+
 
 
