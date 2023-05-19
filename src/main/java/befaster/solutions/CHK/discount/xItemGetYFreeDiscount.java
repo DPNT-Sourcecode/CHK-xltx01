@@ -2,13 +2,9 @@ package befaster.solutions.CHK.discount;
 
 import befaster.solutions.CHK.skuObject;
 
-public class xItemGetYFreeDiscount extends discount{
+public class xItemGetYFreeDiscount extends discount implements DiscountCalculator{
     public xItemGetYFreeDiscount(int itemCount) {
        super(itemCount);
-    }
-
-    int calculateDiscount(int count) {
-        return 0;
     }
 
     public int calculateDiscount(int count, int countOfDependentItem) {
@@ -16,4 +12,6 @@ public class xItemGetYFreeDiscount extends discount{
         if(quotientForSkulEToBDiscount != 0 && count>0 ) count= count - quotientForSkulEToBDiscount;
         return count;
     }
+
 }
+

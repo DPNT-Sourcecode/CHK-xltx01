@@ -2,7 +2,7 @@ package befaster.solutions.CHK.discount;
 
 import befaster.solutions.CHK.skuObject;
 
-public class xItemForPriceDiscount extends discount {
+public class xItemForPriceDiscount extends discount implements DiscountCalculator{
 
     private skuObject discountItem;
 
@@ -14,7 +14,7 @@ public class xItemForPriceDiscount extends discount {
         this.discountPrice = discountPrice;
     }
 
-    public int calculateDiscount(int count) {
+    public int calculateDiscount(int count, int countOfDependentItem) {
         int quotient = count / getItemCount() ;
         if (quotient == 0) return 0;
         int reminder = count % 2;
@@ -22,3 +22,4 @@ public class xItemForPriceDiscount extends discount {
         return reminder;
     }
 }
+

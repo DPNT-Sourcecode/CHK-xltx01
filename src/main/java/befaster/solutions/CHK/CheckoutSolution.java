@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import befaster.solutions.CHK.discount.xItemForPriceDiscount;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -13,6 +15,7 @@ public class CheckoutSolution {
     private skuF objectF = new skuF("F", 10);
     Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
+        initialize();
         mapOfCountOfSkuInOrder.put("A", 0);
         mapOfCountOfSkuInOrder.put("B", 0);
         mapOfCountOfSkuInOrder.put("C", 0);
@@ -40,13 +43,18 @@ public class CheckoutSolution {
         return mapOfCountOfSkuInOrder.containsKey(Character.toString(charToValidate));
     }
 
+    public void initialize(){
+        objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 5, 200));
+        objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 3, 130));
+    }
+
     public Integer calculateBasketTotal(String sku){
         Integer sum = 0;
 
         switch(sku) {
 
             case "A":
-                sum = objectA.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectA.calculateItemTotal(mapOfCountOfSkuInOrder.get(sku));
                break;
             case "B":
                 sum = objectB.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku), mapOfCountOfSkuInOrder.get("E"));
@@ -67,6 +75,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 

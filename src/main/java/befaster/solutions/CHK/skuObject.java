@@ -1,5 +1,6 @@
 package befaster.solutions.CHK;
 
+import befaster.solutions.CHK.discount.DiscountCalculator;
 import befaster.solutions.CHK.discount.discount;
 
 import java.util.Collection;
@@ -10,7 +11,7 @@ public class skuObject {
     private String name;
     private int price;
 
-    private List<discount> itemDiscounts;
+    private List<DiscountCalculator> itemDiscounts;
 
     private int total;
 
@@ -33,12 +34,13 @@ public class skuObject {
         this.total = total;
     }
 
-    public List<discount> getItemDiscounts() {
+    public List<DiscountCalculator> getItemDiscounts() {
         return itemDiscounts;
     }
 
-    public void setItemDiscounts(discount discount) {
-        itemDiscounts.add(discount);
+    public void setItemDiscounts(DiscountCalculator discountCalculator) {
+        itemDiscounts.add(discountCalculator);
     }
 }
+
 
