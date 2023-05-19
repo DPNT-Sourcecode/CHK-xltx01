@@ -4,7 +4,7 @@ public class skuObject {
     private String name;
     private int price;
 
-    public skuObject(String name, int price){
+    public skuObject(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -12,4 +12,9 @@ public class skuObject {
     public int getPrice() {
         return price;
     }
+
+    public int getTotalCheckout(int count){
+
+    }
 }
+
