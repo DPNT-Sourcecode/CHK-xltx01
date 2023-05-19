@@ -55,18 +55,18 @@ public class skuObject {
     }
 
     public int calculateItemTotal(){
-        int totalSkuInBasket = this.getCount();
         List<DiscountCalculator> itemDiscounts = this.getItemDiscounts();
         if(itemDiscounts.size() > 0){
             for (DiscountCalculator itemDiscount : itemDiscounts) {
-                totalSkuInBasket = itemDiscount.calculateDiscount(totalSkuInBasket, 0);
+                itemDiscount.calculateDiscount();
             }
         }
-        return this.getTotal() + (totalSkuInBasket * this.getPrice());
+        return this.getTotal() + (this.getCount() * this.getPrice());
     }
 
     public String getName() {
         return name;
     }
 }
+
 

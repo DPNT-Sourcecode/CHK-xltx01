@@ -14,13 +14,14 @@ public class xItemGetXFreeDiscount extends discount implements DiscountCalculato
         this.discountPrice = discountPrice;
     }
 
-    public int calculateDiscount(int count, int countOfDependentItem) {
-        int quotient = count/getItemCount();
+     public void calculateDiscount() {
+        int quotient = discountItem.getCount()/getItemCount();
         if(quotient > 0){
             discountItem.setTotal(discountItem.getTotal() + (quotient * (getItemCount() - discountPrice) * discountItem.getPrice()));
         }
-        return count % getItemCount();
+        discountItem.setCount(discountItem.getCount() % getItemCount());
     }
 
 
 }
+

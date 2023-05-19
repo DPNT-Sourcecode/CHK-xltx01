@@ -5,15 +5,18 @@ import befaster.solutions.CHK.skuObject;
 public class xItemGetYFreeDiscount extends discount implements DiscountCalculator{
 
     private skuObject dependentItem;
-    public xItemGetYFreeDiscount(int itemCount, skuObject dependentItem) {
+
+    private skuObject discountedItem;
+    public xItemGetYFreeDiscount(int itemCount, skuObject dependentItem, skuObject discountedItem) {
        super(itemCount);
        this.dependentItem = dependentItem;
+       this.discountedItem = discountedItem;
     }
 
-    public int calculateDiscount(int count, int countOfDependentItem) {
+    public void calculateDiscount() {
         int quotientForSkulEToBDiscount = dependentItem.getCount()/getItemCount();
-        if(quotientForSkulEToBDiscount != 0 && count>0 ) count= count - quotientForSkulEToBDiscount;
-        return count;
+        if(quotientForSkulEToBDiscount != 0 && discountedItem.getCount()>0 ) discountedItem.setCount( discountedItem.getCount() - quotientForSkulEToBDiscount);
     }
 
 }
+

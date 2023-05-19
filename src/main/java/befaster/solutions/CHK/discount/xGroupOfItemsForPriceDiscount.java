@@ -21,7 +21,7 @@ public class xGroupOfItemsForPriceDiscount extends discount implements DiscountC
         this.calculatedDiscount = false;
     }
 
-    public int calculateDiscount(int count, int countOfDependentItem) {
+    public void calculateDiscount() {
        boolean complete = false;
         List<skuObject> qualifyingGroup = new ArrayList<>();
         if(!calculatedDiscount){
@@ -42,9 +42,8 @@ public class xGroupOfItemsForPriceDiscount extends discount implements DiscountC
                 }
             }
             calculatedDiscount = true;
-            return verifiedDiscountCount * discountPrice;
-        } else{
-            return 0;
+            discountGroupItem.get(0).setTotal(verifiedDiscountCount * discountPrice);
         }
     }
 }
+
