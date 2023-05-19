@@ -33,6 +33,8 @@ public class CheckoutSolution {
         }
         mapOfCountOfSkuInOrder.keySet().forEach(key -> basketTotal.set(basketTotal.get() + calculateBasketTotal(key)));
 
+
+        mapOfCountOfSkuInOrder.clear();
         return basketTotal.get();
     }
 
@@ -77,6 +79,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
