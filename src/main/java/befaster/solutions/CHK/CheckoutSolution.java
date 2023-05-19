@@ -26,20 +26,24 @@ public class CheckoutSolution {
         for (int i = 0; i < skus.length(); i++) {
             char currentSkus = skus.charAt(i);
             if(validateCharacter(currentSkus)){
-               Integer countOfSkus = mapOfCountOfSkuInOrder.get(currentSkus) + 1;
-
-
+               Integer countOfSkus = mapOfCountOfSkuInOrder.get(Character.toString(currentSkus)) + 1;
+               mapOfCountOfSkuInOrder.put(Character.toString(currentSkus),countOfSkus);
             } else return -1;
-
         }
+
+
     }
 
     public Boolean validateCharacter(char charToValidate){
-        return mapOfSkuToPrice.containsKey(charToValidate.);
+        return mapOfSkuToPrice.containsKey(Character.toString(charToValidate));
     }
 
-    pu
+    public Integer calculateBasketTotal(){
+
+        
+    }
 }
+
 
 
 
