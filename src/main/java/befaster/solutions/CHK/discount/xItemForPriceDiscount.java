@@ -16,10 +16,11 @@ public class xItemForPriceDiscount extends discount implements DiscountCalculato
 
     public int calculateDiscount(int count, int countOfDependentItem) {
         int quotient = count / getItemCount() ;
-        if (quotient == 0) return 0;
-        int reminder = count % 2;
+        if (quotient == 0) return count;
+        int reminder = count % getItemCount();
         discountItem.setTotal(discountItem.getTotal() + (quotient * discountPrice));
         return reminder;
     }
 }
+
 
