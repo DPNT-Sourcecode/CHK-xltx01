@@ -47,10 +47,16 @@ public class CheckoutSolution {
                 int total = mapOfCountOfSkuInOrder.get(sku);
                 int quotient = total / 3;
                 int reminder = total % 3;
+                if (quotient == 0) sum = sum + (total * 50);
+                else{
+                    sum = sum + (quotient * 130);
+                    sum = sum + (reminder * 50);
+                }
+            break;
         }
-
     }
 }
+
 
 
 
