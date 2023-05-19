@@ -3,6 +3,7 @@ package befaster.solutions.CHK;
 import befaster.solutions.CHK.discount.DiscountCalculator;
 import befaster.solutions.CHK.discount.discount;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +20,7 @@ public class skuObject {
         this.name = name;
         this.price = price;
         this.total = 0;
-        itemDiscounts = Collections.emptyList();
+        itemDiscounts = new ArrayList<>();
     }
 
     public int getPrice() {
@@ -42,5 +43,6 @@ public class skuObject {
         itemDiscounts.add(discountCalculator);
     }
 }
+
 
 
