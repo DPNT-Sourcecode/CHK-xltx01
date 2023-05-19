@@ -9,16 +9,28 @@ public class skuA extends skuObject {
         int sum = 0;
         int quotientA = totalSkuAInBasket / 5;
         if (quotientA == 0) {
-            if(totalSkuAInBasket == 3)  sum = sum + 130;
-            else sum = sum + (totalSkuAInBasket * 50);
+             return sum = discountFor3(totalSkuAInBasket);
         }
         else{
-            int reminderA = totalSkuAInBasket % 5;
+            int reminder = totalSkuAInBasket % 5;
             sum = sum + (quotientA * 200);
-            if(reminderA == 3)   sum = sum + 130;
-            else sum = sum + (reminderA * 50);
+            sum = sum + discountFor3(reminder);
         }
         return sum;
     }
+
+    public int discountFor3(int count){
+        int sum = 0;
+        int quotientA = count / 3;
+        if (quotientA == 0) {
+            sum = sum + (count * 50);
+            return sum;
+        }
+        int reminder = count % 3;
+        sum = sum + (quotientA * 200);
+        sum = sum + (reminder * 50);
+        return sum;
+    }
 }
+
 
