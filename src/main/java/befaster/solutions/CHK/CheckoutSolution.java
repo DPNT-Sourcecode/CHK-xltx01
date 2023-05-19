@@ -35,9 +35,7 @@ public class CheckoutSolution {
             } else return -1;
         }
         mapOfCountOfSkuInOrder.keySet().forEach(key -> basketTotal.set(basketTotal.get() + calculateBasketTotal(key)));
-
-
-        mapOfCountOfSkuInOrder.clear();
+        clear();
         return basketTotal.get();
     }
 
@@ -51,6 +49,13 @@ public class CheckoutSolution {
         objectB.setItemDiscounts(new xItemGetYFreeDiscount(2, objectE));
         objectB.setItemDiscounts(new xItemForPriceDiscount(objectB, 2, 45));
         objectF.setItemDiscounts(new xItemGetXFreeDiscount(objectF, 3, 1));
+    }
+
+    public void clear(){
+        mapOfCountOfSkuInOrder.values().forEach( item -> {
+            item.setCount(0);
+            item.setTotal(0);
+        });
     }
 
     public Integer calculateBasketTotal(String sku){
@@ -80,6 +85,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
