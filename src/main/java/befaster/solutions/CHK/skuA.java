@@ -27,10 +27,11 @@ public class skuA extends skuObject {
             return sum;
         }
         int reminder = count % 3;
-        sum = sum + (quotientA * 200);
+        sum = sum + (quotientA * 130);
         sum = sum + (reminder * 50);
         return sum;
     }
 }
+
 
 
