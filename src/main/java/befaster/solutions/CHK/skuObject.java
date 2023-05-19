@@ -12,9 +12,7 @@ public class skuObject {
     public int getPrice() {
         return price;
     }
-
-    public int getTotalCheckout(int count){
-
-    }
 }
+
+
 

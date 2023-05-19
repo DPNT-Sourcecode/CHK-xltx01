@@ -6,9 +6,9 @@ public class skuA extends skuObject {
     }
 
     public int calculateBasketSum(int totalSkuAInBasket){
-        Integer sum = 0;
+        int sum = 0;
         int quotientA = totalSkuAInBasket / 3;
-        int reminderA = totalSkuAInBasket% 3;
+        int reminderA = totalSkuAInBasket % 3;
         if (quotientA == 0) sum = sum + (totalSkuAInBasket * 50);
         else{
             sum = sum + (quotientA * 130);
@@ -17,4 +17,5 @@ public class skuA extends skuObject {
         return sum;
     }
 }
+
 
