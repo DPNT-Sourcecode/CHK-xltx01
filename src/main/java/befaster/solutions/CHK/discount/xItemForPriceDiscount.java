@@ -22,5 +22,3 @@ public class xItemForPriceDiscount extends discount implements DiscountCalculato
         return reminder;
     }
 }
-
-

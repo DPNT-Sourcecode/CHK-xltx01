@@ -4,4 +4,3 @@ public interface DiscountCalculator {
 
     int calculateDiscount(int count, int countOfDependentItem);
 }
-
