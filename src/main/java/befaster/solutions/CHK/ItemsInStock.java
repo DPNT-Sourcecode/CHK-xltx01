@@ -1,18 +1,22 @@
 package befaster.solutions.CHK;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsInStock {
     private List<skuObject> items;
 
 
-    public ItemsInStock(String items) {
-        this.items = register(items);
+    public ItemsInStock() {
+        this.items = new ArrayList<>();
     }
 
-    private List<skuObject> register (String itemsToRegister){
-        for(itemsToRegister.toCharArray() : char i){
+    public void addNewItem(String name, int price){
+        items.add(new skuObject(name, price));
+    }
 
-        }
+    public List<skuObject> getItemsInStock (){
+        return items;
     }
 }
+

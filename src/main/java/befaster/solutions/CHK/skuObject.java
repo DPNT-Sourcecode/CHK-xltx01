@@ -65,5 +65,10 @@ public class skuObject {
         }
         return this.getTotal() + (totalSkuInBasket * this.getPrice());
     }
+
+    public String getName() {
+        return name;
+    }
 }
+
 
