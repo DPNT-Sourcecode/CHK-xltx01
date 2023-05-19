@@ -28,9 +28,10 @@ public class skuA extends skuObject {
         List<discount> itemDiscounts = this.getItemDiscounts();
         if(itemDiscounts.size() > 0){
             for(int i=0; i<itemDiscounts.size(); i++){
-                itemDiscounts.get(i) 
+                itemDiscounts.get(i);
             }
         }
+        return 0;
     }
 
     public int discountFor3(int count){
@@ -46,4 +47,5 @@ public class skuA extends skuObject {
         return sum;
     }
 }
+
 
