@@ -10,6 +10,7 @@ public class CheckoutSolution {
     private skuC objectC = new skuC("C", 20);
     private skuD objectD = new skuD("D", 15);
     private skuE objectE = new skuE("E", 40);
+    private skuF objectF = new skuF("F", 10);
     Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
         mapOfCountOfSkuInOrder.put("A", 0);
@@ -17,6 +18,7 @@ public class CheckoutSolution {
         mapOfCountOfSkuInOrder.put("C", 0);
         mapOfCountOfSkuInOrder.put("D", 0);
         mapOfCountOfSkuInOrder.put("E", 0);
+        mapOfCountOfSkuInOrder.put("F", 0);
 
         AtomicReference<Integer> basketTotal = new AtomicReference<>(0);
 
@@ -58,10 +60,14 @@ public class CheckoutSolution {
             case "E":
                 sum = objectE.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
                 break;
+            case "F":
+                sum = objectF.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                break;
         }
         return sum;
     }
 }
+
 
 
 
