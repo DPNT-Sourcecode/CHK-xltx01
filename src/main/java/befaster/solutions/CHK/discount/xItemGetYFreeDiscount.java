@@ -13,4 +13,3 @@ public class xItemGetYFreeDiscount extends discount{
         return count;
     }
 }
-
