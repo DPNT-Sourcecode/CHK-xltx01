@@ -15,15 +15,11 @@ public class CheckoutSolution {
     private skuObject objectD = new skuObject("D", 15);
     private skuObject objectE = new skuObject("E", 40);
     private skuObject objectF = new skuObject("F", 10);
+
+
     Map<String, skuObject> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
         initialize();
-        mapOfCountOfSkuInOrder.put("A", objectA);
-        mapOfCountOfSkuInOrder.put("B", objectB);
-        mapOfCountOfSkuInOrder.put("C", objectC);
-        mapOfCountOfSkuInOrder.put("D", objectD);
-        mapOfCountOfSkuInOrder.put("E", objectE);
-        mapOfCountOfSkuInOrder.put("F", objectF);
 
         AtomicReference<Integer> basketTotal = new AtomicReference<>(0);
 
@@ -44,6 +40,14 @@ public class CheckoutSolution {
     }
 
     public void initialize(){
+        mapOfCountOfSkuInOrder.put("A", objectA);
+        mapOfCountOfSkuInOrder.put("B", objectB);
+        mapOfCountOfSkuInOrder.put("C", objectC);
+        mapOfCountOfSkuInOrder.put("D", objectD);
+        mapOfCountOfSkuInOrder.put("E", objectE);
+        mapOfCountOfSkuInOrder.put("F", objectF);
+
+
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 5, 200));
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 3, 130));
         objectB.setItemDiscounts(new xItemGetYFreeDiscount(2, objectE));
@@ -85,6 +89,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
