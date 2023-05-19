@@ -42,6 +42,26 @@ public class CheckoutSolution {
         items.addNewItem("D", 15);
         items.addNewItem("E", 40);
         items.addNewItem("F", 10);
+        items.addNewItem("G", 20);
+        items.addNewItem("H", 10);
+        items.addNewItem("I", 35);
+        items.addNewItem("J", 60);
+        items.addNewItem("K", 80);
+        items.addNewItem("L", 90);
+        items.addNewItem("M", 15);
+        items.addNewItem("N", 40);
+        items.addNewItem("O", 10);
+        items.addNewItem("P", 50);
+        items.addNewItem("Q", 30);
+        items.addNewItem("R", 50);
+        items.addNewItem("S", 30);
+        items.addNewItem("T", 20);
+        items.addNewItem("U", 40);
+        items.addNewItem("V", 50);
+        items.addNewItem("W", 20);
+        items.addNewItem("X", 90);
+        items.addNewItem("Y", 10);
+        items.addNewItem("Z", 50);
 
         for(skuObject item : items.getItemsInStock()){
             mapOfCountOfSkuInOrder.put(item.getName(), item);
@@ -52,6 +72,18 @@ public class CheckoutSolution {
         mapOfCountOfSkuInOrder.get("B").setItemDiscounts(new xItemGetYFreeDiscount(2,mapOfCountOfSkuInOrder.get("E")));
         mapOfCountOfSkuInOrder.get("B").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("B"), 2, 45));
         mapOfCountOfSkuInOrder.get("F").setItemDiscounts(new xItemGetXFreeDiscount(mapOfCountOfSkuInOrder.get("F"), 3, 1));
+        mapOfCountOfSkuInOrder.get("H").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("H"), 10, 80));
+        mapOfCountOfSkuInOrder.get("H").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("H"), 5, 45));
+        mapOfCountOfSkuInOrder.get("K").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("K"), 2, 150));
+        mapOfCountOfSkuInOrder.get("M").setItemDiscounts(new xItemGetYFreeDiscount(3,mapOfCountOfSkuInOrder.get("N")));
+        mapOfCountOfSkuInOrder.get("P").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("P"), 5, 200));
+        mapOfCountOfSkuInOrder.get("Q").setItemDiscounts(new xItemGetYFreeDiscount(3,mapOfCountOfSkuInOrder.get("R")));
+        mapOfCountOfSkuInOrder.get("Q").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("Q"), 3, 80));
+        mapOfCountOfSkuInOrder.get("U").setItemDiscounts(new xItemGetXFreeDiscount(mapOfCountOfSkuInOrder.get("U"), 4, 1));
+
+        mapOfCountOfSkuInOrder.get("V").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("V"), 3, 130));
+        mapOfCountOfSkuInOrder.get("V").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("V"), 2, 90));
+
     }
 
     public void clear(){
@@ -67,6 +99,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
