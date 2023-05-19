@@ -25,14 +25,14 @@ public class skuA extends skuObject {
 //    }
 
     public int calculateItemTotal(int totalSkuAInBasket){
-        this.setTotal(totalSkuAInBasket);
+     //   this.setTotal(totalSkuAInBasket);
         List<DiscountCalculator> itemDiscounts = this.getItemDiscounts();
         if(itemDiscounts.size() > 0){
             for (DiscountCalculator itemDiscount : itemDiscounts) {
                totalSkuAInBasket = itemDiscount.calculateDiscount(totalSkuAInBasket, 0);
             }
         }
-        return (totalSkuAInBasket * this.getPrice());
+        return this.getTotal() + (totalSkuAInBasket * this.getPrice());
     }
 
 //    public int discountFor3(int count){
@@ -48,5 +48,6 @@ public class skuA extends skuObject {
 //        return sum;
 //    }
 }
+
 
 
