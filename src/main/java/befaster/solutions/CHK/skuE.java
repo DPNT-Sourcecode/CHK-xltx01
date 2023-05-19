@@ -5,11 +5,10 @@ public class skuE extends skuObject {
         super(name, price);
     }
 
-    public int calculateBasketSum(int totalSkuAInBasket){
+    public int calculateBasketSum(int totalSkuEInBasket){
         Integer sum = 0;
-        int quotientA = totalSkuAInBasket / 2;
-        sum = sum + (quotientA * 30);
-        sum = sum + (totalSkuAInBasket * 40);
+        sum = sum + (totalSkuEInBasket * 40);
         return sum;
     }
 }
+

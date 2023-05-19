@@ -47,7 +47,7 @@ public class CheckoutSolution {
                 sum = objectA.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
                break;
             case "B":
-                sum = objectB.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectB.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku), mapOfCountOfSkuInOrder.get("E"));
                 break;
             case "C":
                 sum = objectC.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
@@ -62,6 +62,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 

@@ -5,8 +5,11 @@ public class skuB extends skuObject {
         super(name, price);
     }
 
-    public int calculateBasketSum(int totalSkuBInBasket){
+    public int calculateBasketSum(int totalSkuBInBasket, int totalSkuEInBasket ){
         Integer sum = 0;
+        int quotientForSkulEToBDiscount = totalSkuEInBasket/2;
+        if(quotientForSkulEToBDiscount != 0 ) totalSkuBInBasket = totalSkuBInBasket - quotientForSkulEToBDiscount;
+
         int quotient = totalSkuBInBasket / 2;
         int reminder = totalSkuBInBasket % 2;
         if (quotient == 0) sum = sum + (totalSkuBInBasket * 30);
@@ -17,3 +20,4 @@ public class skuB extends skuObject {
         return sum;
     }
 }
+
