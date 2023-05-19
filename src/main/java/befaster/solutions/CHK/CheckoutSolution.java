@@ -12,12 +12,12 @@ public class CheckoutSolution {
     private skuObject objectD = new skuObject("D", 15);
 
     private Map<String, Integer> mapOfSkuToPrice = new HashMap<>();
+    Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
         mapOfSkuToPrice.put("A", 50);
         mapOfSkuToPrice.put("B", 30);
         mapOfSkuToPrice.put("C", 20);
         mapOfSkuToPrice.put("D", 15);
-        Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
         mapOfCountOfSkuInOrder.put("A", 0);
         mapOfCountOfSkuInOrder.put("B", 0);
         mapOfCountOfSkuInOrder.put("C", 0);
@@ -38,16 +38,18 @@ public class CheckoutSolution {
         return mapOfSkuToPrice.containsKey(Character.toString(charToValidate));
     }
 
-    public Integer calculateBasketTotal(){
-          
+    public Integer calculateBasketTotal(String sku){
+        Integer sum = 0;
+
+        switch(sku){
+
+            case "A":
+               int total = mapOfCountOfSkuInOrder.get(sku);
+               
+        }
 
     }
 }
-
-
-
-
-
 
 
 

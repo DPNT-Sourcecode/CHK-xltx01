@@ -13,4 +13,3 @@ public class skuObject {
         return price;
     }
 }
-
