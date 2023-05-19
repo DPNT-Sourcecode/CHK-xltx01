@@ -20,4 +20,3 @@ public class SumSolutionTest {
         assertThat(sum.compute(5, 1), equalTo(6));
     }
 }
-
