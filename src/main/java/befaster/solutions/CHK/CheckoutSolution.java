@@ -17,17 +17,30 @@ public class CheckoutSolution {
         mapOfSkuToPrice.put("B", 30);
         mapOfSkuToPrice.put("C", 20);
         mapOfSkuToPrice.put("D", 15);
+        Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
+        mapOfCountOfSkuInOrder.put("A", 0);
+        mapOfCountOfSkuInOrder.put("B", 0);
+        mapOfCountOfSkuInOrder.put("C", 0);
+        mapOfCountOfSkuInOrder.put("D", 0);
 
         for (int i = 0; i < skus.length(); i++) {
+            char currentSkus = skus.charAt(i);
+            if(validateCharacter(currentSkus)){
+               Integer countOfSkus = mapOfCountOfSkuInOrder.get(currentSkus) + 1;
 
+
+            } else return -1;
 
         }
     }
 
     public Boolean validateCharacter(char charToValidate){
-        
+        return mapOfSkuToPrice.containsKey(charToValidate.);
     }
+
+    pu
 }
+
 
 
 
