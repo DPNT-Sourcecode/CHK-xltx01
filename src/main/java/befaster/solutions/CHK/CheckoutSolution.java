@@ -5,22 +5,18 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CheckoutSolution {
-    private skuObject objectA = new skuObject("A", 50);
-    private skuObject objectB = new skuObject("B", 30);
-    private skuObject objectC = new skuObject("C", 20);
-    private skuObject objectD = new skuObject("D", 15);
-
-    private Map<String, Integer> mapOfSkuToPrice = new HashMap<>();
+    private skuA objectA = new skuA("A", 50);
+    private skuB objectB = new skuB("B", 30);
+    private skuC objectC = new skuC("C", 20);
+    private skuD objectD = new skuD("D", 15);
+    private skuE objectE = new skuE("E", 40);
     Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
-        mapOfSkuToPrice.put("A", 50);
-        mapOfSkuToPrice.put("B", 30);
-        mapOfSkuToPrice.put("C", 20);
-        mapOfSkuToPrice.put("D", 15);
         mapOfCountOfSkuInOrder.put("A", 0);
         mapOfCountOfSkuInOrder.put("B", 0);
         mapOfCountOfSkuInOrder.put("C", 0);
         mapOfCountOfSkuInOrder.put("D", 0);
+        mapOfCountOfSkuInOrder.put("E", 0);
 
         AtomicReference<Integer> basketTotal = new AtomicReference<>(0);
 
@@ -39,7 +35,7 @@ public class CheckoutSolution {
     }
 
     public Boolean validateCharacter(char charToValidate){
-        return mapOfSkuToPrice.containsKey(Character.toString(charToValidate));
+        return mapOfCountOfSkuInOrder.containsKey(Character.toString(charToValidate));
     }
 
     public Integer calculateBasketTotal(String sku){
@@ -48,37 +44,25 @@ public class CheckoutSolution {
         switch(sku) {
 
             case "A":
-                int totalA = mapOfCountOfSkuInOrder.get(sku);
-                int quotientA = totalA / 3;
-                int reminderA = totalA % 3;
-                if (quotientA == 0) sum = sum + (totalA * 50);
-                else{
-                    sum = sum + (quotientA * 130);
-                    sum = sum + (reminderA * 50);
-                }
+                sum = objectA.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
                break;
             case "B":
-                int totalB = mapOfCountOfSkuInOrder.get(sku);
-                int quotientB = totalB / 2;
-                int reminderB = totalB % 2;
-                if (quotientB == 0) sum = sum + (totalB * 30);
-                else{
-                    sum = sum + (quotientB * 45);
-                    sum = sum + (reminderB * 30);
-                }
+                sum = objectB.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
                 break;
             case "C":
-                int totalC = mapOfCountOfSkuInOrder.get(sku);
-                sum = totalC * 20;
+                sum = objectC.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
                 break;
             case "D":
-                int totalD = mapOfCountOfSkuInOrder.get(sku);
-                sum = totalD * 15;
+                sum = objectD.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                break;
+            case "E":
+                sum = objectE.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
                 break;
         }
         return sum;
     }
 }
+
 
 
 
