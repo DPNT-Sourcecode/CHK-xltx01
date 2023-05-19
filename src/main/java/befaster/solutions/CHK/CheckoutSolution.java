@@ -41,15 +41,17 @@ public class CheckoutSolution {
     public Integer calculateBasketTotal(String sku){
         Integer sum = 0;
 
-        switch(sku){
+        switch(sku) {
 
             case "A":
-               int total = mapOfCountOfSkuInOrder.get(sku);
-               
+                int total = mapOfCountOfSkuInOrder.get(sku);
+                int quotient = total / 3;
+                int reminder = total % 3;
         }
 
     }
 }
+
 
 
 
