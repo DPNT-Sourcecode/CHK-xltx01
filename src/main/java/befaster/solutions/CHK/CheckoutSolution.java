@@ -31,7 +31,9 @@ public class CheckoutSolution {
                mapOfCountOfSkuInOrder.put(Character.toString(currentSkus),countOfSkus);
             } else return -1;
         }
-        mapOfCountOfSkuInOrder.keySet().stream().forEach(key -> basketTotal.set(basketTotal.get() + calculateBasketTotal(key)));
+        mapOfCountOfSkuInOrder.keySet().forEach(key -> basketTotal.set(basketTotal.get() + calculateBasketTotal(key)));
+
+        return basketTotal.get();
     }
 
     public Boolean validateCharacter(char charToValidate){
@@ -75,6 +77,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
