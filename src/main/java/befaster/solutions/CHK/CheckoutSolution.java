@@ -1,11 +1,9 @@
 package befaster.solutions.CHK;
 
-import befaster.solutions.CHK.discount.DiscountCalculator;
-import befaster.solutions.CHK.discount.xItemForPriceDiscount;
-import befaster.solutions.CHK.discount.xItemGetXFreeDiscount;
-import befaster.solutions.CHK.discount.xItemGetYFreeDiscount;
+import befaster.solutions.CHK.discount.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -80,10 +78,14 @@ public class CheckoutSolution {
         mapOfCountOfSkuInOrder.get("Q").setItemDiscounts(new xItemGetYFreeDiscount(3,mapOfCountOfSkuInOrder.get("R")));
         mapOfCountOfSkuInOrder.get("Q").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("Q"), 3, 80));
         mapOfCountOfSkuInOrder.get("U").setItemDiscounts(new xItemGetXFreeDiscount(mapOfCountOfSkuInOrder.get("U"), 4, 1));
-
         mapOfCountOfSkuInOrder.get("V").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("V"), 3, 130));
         mapOfCountOfSkuInOrder.get("V").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("V"), 2, 90));
-
+        DiscountCalculator groupDiscount1 = new xGroupOfItemsForPriceDiscount(List.of( mapOfCountOfSkuInOrder.get("S"), mapOfCountOfSkuInOrder.get("T"), mapOfCountOfSkuInOrder.get("X"), mapOfCountOfSkuInOrder.get("Y"), mapOfCountOfSkuInOrder.get("Z")), 3, 45);
+        mapOfCountOfSkuInOrder.get("S").setItemDiscounts(groupDiscount1);
+        mapOfCountOfSkuInOrder.get("T").setItemDiscounts(groupDiscount1);
+        mapOfCountOfSkuInOrder.get("X").setItemDiscounts(groupDiscount1);
+        mapOfCountOfSkuInOrder.get("Y").setItemDiscounts(groupDiscount1);
+        mapOfCountOfSkuInOrder.get("Z").setItemDiscounts(groupDiscount1);
     }
 
     public void clear(){
@@ -99,6 +101,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
