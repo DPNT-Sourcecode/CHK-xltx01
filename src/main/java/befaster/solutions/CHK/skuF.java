@@ -17,5 +17,3 @@ public class skuF extends skuObject {
         return sum;
     }
 }
-
-
