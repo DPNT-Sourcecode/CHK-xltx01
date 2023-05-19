@@ -32,4 +32,3 @@ public class skuF extends skuObject {
         return this.getTotal() + (totalSkuInBasket * this.getPrice());
     }
 }
-

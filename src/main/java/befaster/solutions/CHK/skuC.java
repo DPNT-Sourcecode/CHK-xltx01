@@ -20,4 +20,3 @@ public class skuC extends skuObject {
         return this.getTotal() + (totalSkuInBasket * this.getPrice());
     }
 }
-
