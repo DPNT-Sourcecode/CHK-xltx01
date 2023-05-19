@@ -11,9 +11,11 @@ public class skuF extends skuObject {
         if(quotient > 0){
             sum = sum + (quotient * 2 * 10);
             sum = sum + ((totalSkuFInBasket % 3) * 10);
+            return sum;
         }
         sum = sum + (totalSkuFInBasket * 10);
         return sum;
     }
 }
+
 
