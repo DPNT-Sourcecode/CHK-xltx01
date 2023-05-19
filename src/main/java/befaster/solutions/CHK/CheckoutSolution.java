@@ -39,10 +39,11 @@ public class CheckoutSolution {
     }
 
     public Integer calculateBasketTotal(){
+          
 
-        
     }
 }
+
 
 
 
