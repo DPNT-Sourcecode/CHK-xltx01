@@ -6,6 +6,8 @@ import befaster.solutions.CHK.discount.discount;
 import java.util.List;
 
 public class skuA extends skuObject {
+
+
     public skuA(String name, int price) {
         super(name, price);
     }
@@ -24,15 +26,16 @@ public class skuA extends skuObject {
 //        return sum;
 //    }
 
-    public int calculateItemTotal(int totalSkuAInBasket){
+    public int calculateItemTotal(){
      //   this.setTotal(totalSkuAInBasket);
+        int totalSkuInBasket = this.getCount();
         List<DiscountCalculator> itemDiscounts = this.getItemDiscounts();
         if(itemDiscounts.size() > 0){
             for (DiscountCalculator itemDiscount : itemDiscounts) {
-               totalSkuAInBasket = itemDiscount.calculateDiscount(totalSkuAInBasket, 0);
+               totalSkuInBasket = itemDiscount.calculateDiscount(totalSkuInBasket, 0);
             }
         }
-        return this.getTotal() + (totalSkuAInBasket * this.getPrice());
+        return this.getTotal() + (totalSkuInBasket * this.getPrice());
     }
 
 //    public int discountFor3(int count){
@@ -48,3 +51,4 @@ public class skuA extends skuObject {
 //        return sum;
 //    }
 }
+

@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.discount.xItemForPriceDiscount;
+import befaster.solutions.CHK.discount.xItemGetYFreeDiscount;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,23 +14,23 @@ public class CheckoutSolution {
     private skuD objectD = new skuD("D", 15);
     private skuE objectE = new skuE("E", 40);
     private skuF objectF = new skuF("F", 10);
-    Map<String, Integer> mapOfCountOfSkuInOrder = new HashMap<>();
+    Map<String, skuObject> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
         initialize();
-        mapOfCountOfSkuInOrder.put("A", 0);
-        mapOfCountOfSkuInOrder.put("B", 0);
-        mapOfCountOfSkuInOrder.put("C", 0);
-        mapOfCountOfSkuInOrder.put("D", 0);
-        mapOfCountOfSkuInOrder.put("E", 0);
-        mapOfCountOfSkuInOrder.put("F", 0);
+        mapOfCountOfSkuInOrder.put("A", objectA);
+        mapOfCountOfSkuInOrder.put("B", objectB);
+        mapOfCountOfSkuInOrder.put("C", objectC);
+        mapOfCountOfSkuInOrder.put("D", objectD);
+        mapOfCountOfSkuInOrder.put("E", objectE);
+        mapOfCountOfSkuInOrder.put("F", objectF);
 
         AtomicReference<Integer> basketTotal = new AtomicReference<>(0);
 
         for (int i = 0; i < skus.length(); i++) {
-            char currentSkus = skus.charAt(i);
-            if(validateCharacter(currentSkus)){
-               Integer countOfSkus = mapOfCountOfSkuInOrder.get(Character.toString(currentSkus)) + 1;
-               mapOfCountOfSkuInOrder.put(Character.toString(currentSkus),countOfSkus);
+            char skusChar = skus.charAt(i);
+            if(validateCharacter(skusChar)){
+               skuObject currentSkus = mapOfCountOfSkuInOrder.get(Character.toString(skusChar));
+                currentSkus.setCount(currentSkus.getCount() + 1);
             } else return -1;
         }
         mapOfCountOfSkuInOrder.keySet().forEach(key -> basketTotal.set(basketTotal.get() + calculateBasketTotal(key)));
@@ -46,6 +47,8 @@ public class CheckoutSolution {
     public void initialize(){
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 5, 200));
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 3, 130));
+        objectB.setItemDiscounts(new xItemForPriceDiscount(objectB, 2, 45));
+        objectB.setItemDiscounts(new xItemGetYFreeDiscount(2, objectE));
     }
 
     public Integer calculateBasketTotal(String sku){
@@ -54,27 +57,28 @@ public class CheckoutSolution {
         switch(sku) {
 
             case "A":
-                sum = objectA.calculateItemTotal(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectA.calculateItemTotal();
                break;
             case "B":
-                sum = objectB.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku), mapOfCountOfSkuInOrder.get("E"));
+                sum = objectB.calculateItemTotal();
                 break;
             case "C":
-                sum = objectC.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectC.calculateItemTotal();
                 break;
             case "D":
-                sum = objectD.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectD.calculateItemTotal();
                 break;
             case "E":
-                sum = objectE.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectE.calculateItemTotal();
                 break;
             case "F":
-                sum = objectF.calculateBasketSum(mapOfCountOfSkuInOrder.get(sku));
+                sum = objectF.calculateItemTotal();
                 break;
         }
         return sum;
     }
 }
+
 
 
 

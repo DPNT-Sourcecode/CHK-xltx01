@@ -1,12 +1,23 @@
 package befaster.solutions.CHK;
 
+import befaster.solutions.CHK.discount.DiscountCalculator;
+
+import java.util.List;
+
 public class skuD extends skuObject {
     public skuD(String name, int price) {
         super(name, price);
     }
 
-    public int calculateBasketSum(int totalSkuDInBasket){
-            Integer sum = 0;
-            return sum = totalSkuDInBasket * 15;
+    public int calculateItemTotal(){
+        int totalSkuInBasket = this.getCount();
+        List<DiscountCalculator> itemDiscounts = this.getItemDiscounts();
+        if(itemDiscounts.size() > 0){
+            for (DiscountCalculator itemDiscount : itemDiscounts) {
+                totalSkuInBasket = itemDiscount.calculateDiscount(totalSkuInBasket, 0);
+            }
         }
+        return this.getTotal() + (totalSkuInBasket * this.getPrice());
+    }
 }
+

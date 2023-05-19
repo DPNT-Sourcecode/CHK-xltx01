@@ -12,6 +12,8 @@ public class skuObject {
     private String name;
     private int price;
 
+    private int count;
+
     private List<DiscountCalculator> itemDiscounts;
 
     private int total;
@@ -20,6 +22,7 @@ public class skuObject {
         this.name = name;
         this.price = price;
         this.total = 0;
+        this.count =0;
         itemDiscounts = new ArrayList<>();
     }
 
@@ -42,5 +45,14 @@ public class skuObject {
     public void setItemDiscounts(DiscountCalculator discountCalculator) {
         itemDiscounts.add(discountCalculator);
     }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }
+
 
