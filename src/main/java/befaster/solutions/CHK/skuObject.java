@@ -53,5 +53,18 @@ public class skuObject {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public int calculateItemTotal(){
+        //   this.setTotal(totalSkuAInBasket);
+        int totalSkuInBasket = this.getCount();
+        List<DiscountCalculator> itemDiscounts = this.getItemDiscounts();
+        if(itemDiscounts.size() > 0){
+            for (DiscountCalculator itemDiscount : itemDiscounts) {
+                totalSkuInBasket = itemDiscount.calculateDiscount(totalSkuInBasket, 0);
+            }
+        }
+        return this.getTotal() + (totalSkuInBasket * this.getPrice());
+    }
 }
+
 

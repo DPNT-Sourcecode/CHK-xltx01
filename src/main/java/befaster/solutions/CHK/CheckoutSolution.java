@@ -9,12 +9,12 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CheckoutSolution {
-    private skuA objectA = new skuA("A", 50);
-    private skuB objectB = new skuB("B", 30);
-    private skuC objectC = new skuC("C", 20);
-    private skuD objectD = new skuD("D", 15);
-    private skuE objectE = new skuE("E", 40);
-    private skuF objectF = new skuF("F", 10);
+    private skuObject objectA = new skuObject("A", 50);
+    private skuObject objectB = new skuObject("B", 30);
+    private skuObject objectC = new skuObject("C", 20);
+    private skuObject objectD = new skuObject("D", 15);
+    private skuObject objectE = new skuObject("E", 40);
+    private skuObject objectF = new skuObject("F", 10);
     Map<String, skuObject> mapOfCountOfSkuInOrder = new HashMap<>();
     public Integer checkout(String skus) {
         initialize();
@@ -85,6 +85,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
