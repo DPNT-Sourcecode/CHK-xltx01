@@ -2,23 +2,49 @@ package befaster.solutions.CHK.discount;
 
 import befaster.solutions.CHK.skuObject;
 
-public class xItemForPriceDiscount extends discount implements DiscountCalculator{
+import java.util.ArrayList;
+import java.util.List;
 
-    private skuObject discountItem;
+public class xGroupOfItemsForPriceDiscount extends discount implements DiscountCalculator{
 
+    private List<skuObject> discountGroupItem;
     private int discountPrice;
+    private int verifiedDiscountCount;
+    private boolean calculatedDiscount;
 
-    public xItemForPriceDiscount(skuObject discountItem, int itemCount, int discountPrice) {
+
+
+    public xGroupOfItemsForPriceDiscount(List<skuObject> discountGroupItem, int itemCount, int discountPrice) {
         super(itemCount);
-        this.discountItem = discountItem;
+        this.discountGroupItem = discountGroupItem;
         this.discountPrice = discountPrice;
+        this.calculatedDiscount = false;
     }
 
     public int calculateDiscount(int count, int countOfDependentItem) {
-        int quotient = count / getItemCount() ;
-        if (quotient == 0) return count;
-        int reminder = count % getItemCount();
-        discountItem.setTotal(discountItem.getTotal() + (quotient * discountPrice));
-        return reminder;
+       boolean complete = false;
+        List<skuObject> qualifyingGroup = new ArrayList<>();
+        if(!calculatedDiscount){
+            while(!complete){
+                for(int i =0; i<discountGroupItem.size(); i++){
+                    if(discountGroupItem.get(i).getCount() > 0){
+                        qualifyingGroup.add(discountGroupItem.get(i));
+                    }
+                    if(qualifyingGroup.size() == getItemCount()){
+                       for(skuObject item: qualifyingGroup){
+                           item.setCount(item.getCount() - 1);
+                           verifiedDiscountCount++;
+                       }
+                       qualifyingGroup.clear();
+                    } else{
+                        if (i == discountGroupItem.size()-1) complete = true;
+                    }
+                }
+            }
+            calculatedDiscount = true;
+            return verifiedDiscountCount * discountPrice;
+        } else{
+            return 0;
+        }
     }
 }
