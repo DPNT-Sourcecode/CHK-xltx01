@@ -48,4 +48,3 @@ public class xGroupOfItemsForPriceDiscount extends discount implements DiscountC
         }
     }
 }
-
