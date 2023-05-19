@@ -10,4 +10,3 @@ public class skuC extends skuObject {
         return sum = totalSkuCInBasket * 20;
     }
 }
-
