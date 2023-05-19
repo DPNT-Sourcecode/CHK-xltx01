@@ -2,18 +2,26 @@ package befaster.solutions.CHK.discount;
 
 import befaster.solutions.CHK.skuObject;
 
-public class xItemGetYFreeDiscount extends discount implements DiscountCalculator{
+public class xItemGetXFreeDiscount extends discount implements DiscountCalculator{
 
-    private skuObject dependentItem;
-    public xItemGetYFreeDiscount(int itemCount, skuObject dependentItem) {
-       super(itemCount);
-       this.dependentItem = dependentItem;
+    private skuObject discountItem;
+
+    private int discountPrice;
+
+    public xItemGetXFreeDiscount(skuObject discountItem, int itemCount, int discountPrice) {
+        super(itemCount);
+        this.discountItem = discountItem;
+        this.discountPrice = discountPrice;
     }
 
     public int calculateDiscount(int count, int countOfDependentItem) {
-        int quotientForSkulEToBDiscount = dependentItem.getCount()/getItemCount();
-        if(quotientForSkulEToBDiscount != 0 && count>0 ) count= count - quotientForSkulEToBDiscount;
-        return count;
+        int quotient = count/getItemCount();
+        if(quotient > 0){
+            discountItem.setTotal(discountItem.getTotal() + (quotient * (getItemCount() - discountPrice) * discountItem.getPrice()));
+        }
+        return count % getItemCount();
     }
 
+
 }
+

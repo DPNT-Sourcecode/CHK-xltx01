@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.discount.xItemForPriceDiscount;
+import befaster.solutions.CHK.discount.xItemGetXFreeDiscount;
 import befaster.solutions.CHK.discount.xItemGetYFreeDiscount;
 
 import java.util.HashMap;
@@ -49,6 +50,7 @@ public class CheckoutSolution {
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 3, 130));
         objectB.setItemDiscounts(new xItemGetYFreeDiscount(2, objectE));
         objectB.setItemDiscounts(new xItemForPriceDiscount(objectB, 2, 45));
+        objectF.setItemDiscounts(new xItemGetXFreeDiscount(objectF, 3, 1));
     }
 
     public Integer calculateBasketTotal(String sku){
@@ -78,6 +80,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
