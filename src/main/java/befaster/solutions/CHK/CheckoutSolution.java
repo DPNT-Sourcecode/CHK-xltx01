@@ -47,8 +47,8 @@ public class CheckoutSolution {
     public void initialize(){
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 5, 200));
         objectA.setItemDiscounts(new xItemForPriceDiscount(objectA, 3, 130));
-        objectB.setItemDiscounts(new xItemForPriceDiscount(objectB, 2, 45));
         objectB.setItemDiscounts(new xItemGetYFreeDiscount(2, objectE));
+        objectB.setItemDiscounts(new xItemForPriceDiscount(objectB, 2, 45));
     }
 
     public Integer calculateBasketTotal(String sku){
@@ -78,6 +78,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
