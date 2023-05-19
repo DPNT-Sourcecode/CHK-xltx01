@@ -18,11 +18,17 @@ public class CheckoutSolution {
         mapOfSkuToPrice.put("C", 20);
         mapOfSkuToPrice.put("D", 15);
 
+        for (int i = 0; i < skus.length(); i++) {
+
+
+        }
+    }
+
+    public Boolean validateCharacter(char charToValidate){
         
-
-
     }
 }
+
 
 
 
