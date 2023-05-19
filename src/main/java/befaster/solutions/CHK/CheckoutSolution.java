@@ -44,7 +44,7 @@ public class CheckoutSolution {
         items.addNewItem("H", 10);
         items.addNewItem("I", 35);
         items.addNewItem("J", 60);
-        items.addNewItem("K", 80);
+        items.addNewItem("K", 70);
         items.addNewItem("L", 90);
         items.addNewItem("M", 15);
         items.addNewItem("N", 40);
@@ -52,14 +52,14 @@ public class CheckoutSolution {
         items.addNewItem("P", 50);
         items.addNewItem("Q", 30);
         items.addNewItem("R", 50);
-        items.addNewItem("S", 30);
+        items.addNewItem("S", 20);
         items.addNewItem("T", 20);
         items.addNewItem("U", 40);
         items.addNewItem("V", 50);
         items.addNewItem("W", 20);
-        items.addNewItem("X", 90);
-        items.addNewItem("Y", 10);
-        items.addNewItem("Z", 50);
+        items.addNewItem("X", 17);
+        items.addNewItem("Y", 20);
+        items.addNewItem("Z", 21);
 
         for(skuObject item : items.getItemsInStock()){
             mapOfCountOfSkuInOrder.put(item.getName(), item);
@@ -72,7 +72,7 @@ public class CheckoutSolution {
         mapOfCountOfSkuInOrder.get("F").setItemDiscounts(new xItemGetXFreeDiscount(mapOfCountOfSkuInOrder.get("F"), 3, 1));
         mapOfCountOfSkuInOrder.get("H").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("H"), 10, 80));
         mapOfCountOfSkuInOrder.get("H").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("H"), 5, 45));
-        mapOfCountOfSkuInOrder.get("K").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("K"), 2, 150));
+        mapOfCountOfSkuInOrder.get("K").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("K"), 2, 120));
         mapOfCountOfSkuInOrder.get("M").setItemDiscounts(new xItemGetYFreeDiscount(3,mapOfCountOfSkuInOrder.get("N"), mapOfCountOfSkuInOrder.get("M")));
         mapOfCountOfSkuInOrder.get("P").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("P"), 5, 200));
         mapOfCountOfSkuInOrder.get("Q").setItemDiscounts(new xItemGetYFreeDiscount(3,mapOfCountOfSkuInOrder.get("R"),mapOfCountOfSkuInOrder.get("Q")));
@@ -101,6 +101,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
