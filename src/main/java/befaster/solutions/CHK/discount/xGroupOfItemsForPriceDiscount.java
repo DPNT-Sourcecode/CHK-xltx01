@@ -28,7 +28,9 @@ public class xGroupOfItemsForPriceDiscount extends discount implements DiscountC
             while(!complete){
                 for(int i =0; i<discountGroupItem.size(); i++){
                     if(discountGroupItem.get(i).getCount() > 0){
-                        qualifyingGroup.add(discountGroupItem.get(i));
+                        for(int z =0; z<discountGroupItem.get(i).getCount(); z++) {
+                            qualifyingGroup.add(discountGroupItem.get(i));
+                        }
                     }
                     if(qualifyingGroup.size() == getItemCount()){
                        for(skuObject item: qualifyingGroup){
@@ -46,4 +48,3 @@ public class xGroupOfItemsForPriceDiscount extends discount implements DiscountC
         }
     }
 }
-

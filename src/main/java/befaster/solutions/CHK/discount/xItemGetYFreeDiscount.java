@@ -19,4 +19,3 @@ public class xItemGetYFreeDiscount extends discount implements DiscountCalculato
     }
 
 }
-

@@ -23,11 +23,9 @@ public class CheckOutSolutionTest {
        assertThat(checkoutSolution.checkout("EEBFFF"), equalTo(100));
        assertThat(checkoutSolution.checkout("EEEBSTX"), equalTo(165));
        assertThat(checkoutSolution.checkout("STXYZ"), equalTo(86));
+        assertThat(checkoutSolution.checkout("STXSTX"), equalTo(65));
 
     }
 
 
 }
-
-
-

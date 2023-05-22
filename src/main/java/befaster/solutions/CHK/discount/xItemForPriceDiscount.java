@@ -22,4 +22,3 @@ public class xItemForPriceDiscount extends discount implements DiscountCalculato
         discountItem.setCount(reminder);
     }
 }
-
