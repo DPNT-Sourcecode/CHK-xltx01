@@ -80,7 +80,7 @@ public class CheckoutSolution {
         mapOfCountOfSkuInOrder.get("U").setItemDiscounts(new xItemGetXFreeDiscount(mapOfCountOfSkuInOrder.get("U"), 4, 1));
         mapOfCountOfSkuInOrder.get("V").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("V"), 3, 130));
         mapOfCountOfSkuInOrder.get("V").setItemDiscounts(new xItemForPriceDiscount(mapOfCountOfSkuInOrder.get("V"), 2, 90));
-        DiscountCalculator groupDiscount1 = new xGroupOfItemsForPriceDiscount(List.of( mapOfCountOfSkuInOrder.get("S"), mapOfCountOfSkuInOrder.get("T"), mapOfCountOfSkuInOrder.get("X"), mapOfCountOfSkuInOrder.get("Y"), mapOfCountOfSkuInOrder.get("Z")), 3, 45);
+        DiscountCalculator groupDiscount1 = new xGroupOfItemsForPriceDiscount(List.of( mapOfCountOfSkuInOrder.get("Z"), mapOfCountOfSkuInOrder.get("S"), mapOfCountOfSkuInOrder.get("T"), mapOfCountOfSkuInOrder.get("Y"), mapOfCountOfSkuInOrder.get("X")), 3, 45);
         mapOfCountOfSkuInOrder.get("S").setItemDiscounts(groupDiscount1);
         mapOfCountOfSkuInOrder.get("T").setItemDiscounts(groupDiscount1);
         mapOfCountOfSkuInOrder.get("X").setItemDiscounts(groupDiscount1);
@@ -101,6 +101,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
